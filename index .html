@@ -1,78 +1,648 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resident Evil Online Game | Play for Free</title>
-  <meta name="description" content="Play Resident Evil online for free in your browser. Dive into classic horror gameplay with no download needed. Experience the thrill now!" />
-  <link rel="canonical" href="https://residentevilfour.store/" />
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survival Karts - Thrilling Zombie Racing Game | residentevilfour.store</title>
+    <meta name="description" content="Play Survival Karts - a high-octane zombie survival racing game. Experience intense kart battles in a post-apocalyptic world. Free online game.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        appleLight: "#f5f5f7",
+                        appleDark: "#1d1d1f",
+                        appleBlue: "#0071e3",
+                        appleGray: "#86868b",
+                        appleRed: "#ff3b30"
+                    },
+                    fontFamily: {
+                        'sans': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #f5f5f7 0%, #e0e0e5 100%);
+        }
+        .game-frame-container {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .game-frame-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #0071e3;
+            transition: width .3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .btn-apple {
+            background: #0071e3;
+            color: white;
+            border-radius: 980px;
+            padding: 12px 22px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .btn-apple:hover {
+            background: #0077ed;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(0, 113, 227, 0.3);
+        }
+        .btn-apple:active {
+            transform: translateY(0);
+        }
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+        }
+        .apple-header {
+            backdrop-filter: saturate(180%) blur(20px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        @media (prefers-color-scheme: dark) {
+            .apple-header {
+                background-color: rgba(29, 29, 31, 0.8);
+            }
+        }
+    </style>
 </head>
-<body class="bg-white text-gray-800 font-sans">
+<body class="font-sans bg-appleLight text-appleDark">
+    <!-- Header/Navigation -->
+    <header class="apple-header sticky top-0 z-50 border-b border-gray-200">
+        <div class="container mx-auto px-4 sm:px-6">
+            <nav class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <span class="bg-appleRed w-8 h-8 rounded-full flex items-center justify-center">
+                        <i class="fas fa-skull text-white text-sm"></i>
+                    </span>
+                    <a href="https://residentevilfour.store" class="text-xl font-bold">SurvivalKarts</a>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#overview" class="nav-link font-medium">Overview</a>
+                    <a href="#features" class="nav-link font-medium">Features</a>
+                    <a href="#gameplay" class="nav-link font-medium">Gameplay</a>
+                    <a href="#play" class="nav-link font-medium">Play Now</a>
+                </div>
+                
+                <a href="#play" class="btn-apple text-sm">
+                    Play Free <i class="fas fa-play ml-2"></i>
+                </a>
+            </nav>
+        </div>
+    </header>
 
-  <div class="max-w-4xl mx-auto px-4 py-8">
-
-    <!-- Game Title -->
-    <h1 class="text-4xl font-bold text-gray-900 mb-4 text-center">Resident Evil Online Game</h1>
-
-    <!-- Intro Line -->
-    <p class="text-lg text-center text-gray-600 mb-6">
-      Survive the nightmare. Play Resident Evil right in your browser—no download needed.
-    </p>
-
-    <!-- Iframe Embed -->
-    <div class="aspect-w-16 aspect-h-9 mb-8">
-      <iframe 
-        src="https://scratch.mit.edu/projects/292516518/" 
-        loading="lazy"
-        allowfullscreen 
-        class="w-full h-96 border border-gray-300 rounded-lg"
-        title="Resident Evil Browser Game"
-      ></iframe>
-    </div>
-
-    <!-- Game Info -->
-    <section class="mb-6">
-      <h2 class="text-2xl font-semibold text-gray-900 mb-2">About the Game</h2>
-      <p class="text-gray-700">
-        Resident Evil is a renowned survival horror game that combines action, exploration, and puzzle-solving. In this online edition, you step into a zombie-infested world, directly from your browser—no installation required.
-      </p>
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-16 pb-24">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 lg:pr-12">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                        <span class="block">Survival Karts:</span>
+                        <span class="block text-appleRed mt-2">Race or Perish</span>
+                    </h1>
+                    <p class="text-lg text-appleGray mb-8 max-w-xl">
+                        Experience the ultimate zombie survival racing game! Navigate through post-apocalyptic landscapes, battle undead hordes, and outrun your opponents in high-octane kart races. Only the fastest will survive!
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#play" class="btn-apple px-8 py-4">
+                            Play Now <i class="fas fa-bolt ml-2"></i>
+                        </a>
+                        <a href="#features" class="flex items-center font-medium text-appleBlue">
+                            Learn more <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="mt-12 flex items-center space-x-6">
+                        <div>
+                            <div class="text-3xl font-bold">4.8/5</div>
+                            <div class="text-appleGray text-sm">Rating</div>
+                        </div>
+                        <div class="h-10 w-px bg-gray-300"></div>
+                        <div>
+                            <div class="text-3xl font-bold">500K+</div>
+                            <div class="text-appleGray text-sm">Players</div>
+                        </div>
+                        <div class="h-10 w-px bg-gray-300"></div>
+                        <div>
+                            <div class="text-3xl font-bold">24</div>
+                            <div class="text-appleGray text-sm">Tracks</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 mt-16 lg:mt-0">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent to-appleLight z-10 rounded-xl"></div>
+                        <div class="rounded-xl overflow-hidden transform rotate-3 shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=2070&auto=format&fit=crop" alt="Survival Karts gameplay" class="w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="mb-6">
-      <h2 class="text-2xl font-semibold text-gray-900 mb-2">Key Features</h2>
-      <ul class="list-disc pl-5 text-gray-700 space-y-1">
-        <li>Classic pixel-style Resident Evil gameplay</li>
-        <li>Explore dark environments and solve puzzles</li>
-        <li>Battle zombies and survive the apocalypse</li>
-        <li>Fully playable online via embedded Scratch project</li>
-      </ul>
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Game Overview</h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6">The Ultimate Survival Racing Experience</h3>
+                    <p class="text-appleGray mb-6">
+                        Survival Karts thrusts you into a post-apocalyptic world overrun by zombies, where the only escape is through high-speed kart racing. This isn't your ordinary racing game - it's a fight for survival where speed, strategy, and firepower determine who lives and who joins the undead.
+                    </p>
+                    <p class="text-appleGray mb-6">
+                        Developed by acclaimed game studio Apocalypse Games, Survival Karts combines the adrenaline rush of kart racing with intense zombie survival elements. With stunning graphics, responsive controls, and immersive gameplay, it's garnered over 500,000 players worldwide since its release.
+                    </p>
+                    
+                    <div class="bg-appleLight p-6 rounded-xl border border-gray-100">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-quote-left text-appleBlue text-xl"></i>
+                            </div>
+                            <p class="ml-4 text-appleGray italic">
+                                "Survival Karts redefines the racing genre with its perfect blend of high-speed action and zombie survival horror. The most thrilling racing experience I've had this year!" 
+                                <span class="block font-medium text-appleDark mt-2 not-italic">- GameZone Magazine</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-appleLight rounded-2xl p-8">
+                        <h3 class="text-xl font-bold mb-6">Game Specifications</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between pb-4 border-b border-gray-200">
+                                <span class="text-appleGray">Genre:</span>
+                                <span class="font-medium">Survival Racing</span>
+                            </div>
+                            <div class="flex justify-between pb-4 border-b border-gray-200">
+                                <span class="text-appleGray">Platform:</span>
+                                <span class="font-medium">Web Browser (PC & Mobile)</span>
+                            </div>
+                            <div class="flex justify-between pb-4 border-b border-gray-200">
+                                <span class="text-appleGray">Release Date:</span>
+                                <span class="font-medium">October 15, 2023</span>
+                            </div>
+                            <div class="flex justify-between pb-4 border-b border-gray-200">
+                                <span class="text-appleGray">Game Modes:</span>
+                                <span class="font-medium">Single Player, Multiplayer</span>
+                            </div>
+                            <div class="flex justify-between pb-4 border-b border-gray-200">
+                                <span class="text-appleGray">File Size:</span>
+                                <span class="font-medium">85 MB</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-appleGray">Developer:</span>
+                                <span class="font-medium">Apocalypse Games</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h3 class="text-xl font-bold mb-4">System Requirements</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <div class="text-sm text-appleGray mb-1">Minimum</div>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• Dual Core 1.8GHz CPU</li>
+                                        <li>• 2GB RAM</li>
+                                        <li>• WebGL 1.0 Support</li>
+                                        <li>• Modern Browser</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <div class="text-sm text-appleGray mb-1">Recommended</div>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• Quad Core 2.5GHz CPU</li>
+                                        <li>• 4GB RAM</li>
+                                        <li>• WebGL 2.0 Support</li>
+                                        <li>• Chrome/Firefox</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="mb-6">
-      <h2 class="text-2xl font-semibold text-gray-900 mb-2">Controls & Instructions</h2>
-      <p class="text-gray-700">
-        Use your keyboard arrows or on-screen buttons (mobile) to move your character. Interact with objects to unlock new areas and escape from danger.
-      </p>
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-appleLight">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Game Features</h2>
+            <p class="text-lg text-appleGray text-center max-w-2xl mx-auto mb-16">
+                Survival Karts delivers an unparalleled racing experience packed with innovative features
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-white rounded-2xl p-8">
+                    <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-tachometer-alt text-appleBlue text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">High-Speed Racing</h3>
+                    <p class="text-appleGray mb-4">
+                        Experience blistering speeds across 24 unique post-apocalyptic tracks with dynamic weather and day/night cycles.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Precision kart controls</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Boost mechanics and drifts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Track shortcuts and secrets</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card bg-white rounded-2xl p-8">
+                    <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-skull text-appleRed text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Zombie Survival</h3>
+                    <p class="text-appleGray mb-4">
+                        Battle through hordes of zombies with an arsenal of upgradable weapons mounted on your kart.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>12 different zombie types</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Defense and offense mechanics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Resource management</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card bg-white rounded-2xl p-8">
+                    <div class="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-cogs text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Customization</h3>
+                    <p class="text-appleGray mb-4">
+                        Personalize your kart and character with hundreds of customization options.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Kart performance upgrades</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Visual modifications</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Weapon loadouts</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card bg-white rounded-2xl p-8">
+                    <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Multiplayer Modes</h3>
+                    <p class="text-appleGray mb-4">
+                        Compete against players worldwide in various multiplayer modes.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>8-player online races</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Team survival challenges</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Leaderboards and tournaments</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card bg-white rounded-2xl p-8">
+                    <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-medal text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Progression System</h3>
+                    <p class="text-appleGray mb-4">
+                        Level up, unlock achievements, and build your survival legacy.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>50+ levels to master</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Challenging achievements</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Seasonal events</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card bg-white rounded-2xl p-8">
+                    <div class="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-pink-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Immersive Experience</h3>
+                    <p class="text-appleGray mb-4">
+                        High-quality audio and visuals create a truly immersive apocalypse.
+                    </p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Cinematic graphics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>3D positional audio</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Controller support</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="mb-6">
-      <h2 class="text-2xl font-semibold text-gray-900 mb-2">Compatibility</h2>
-      <p class="text-gray-700">
-        This game works smoothly on all modern web browsers including Chrome, Safari, Firefox, and Edge. Play it on desktop, tablet, or mobile devices without lag.
-      </p>
+    <!-- Gameplay Section -->
+    <section id="gameplay" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Gameplay Experience</h2>
+            <p class="text-lg text-appleGray text-center max-w-2xl mx-auto mb-16">
+                A thrilling blend of racing and survival that keeps you on the edge of your seat
+            </p>
+            
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="rounded-xl overflow-hidden shadow-lg">
+                                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop" alt="Survival Karts gameplay" class="w-full h-64 object-cover">
+                            </div>
+                            <div class="rounded-xl overflow-hidden shadow-lg mt-8">
+                                <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=2070&auto=format&fit=crop" alt="Survival Karts zombie battle" class="w-full h-64 object-cover">
+                            </div>
+                            <div class="rounded-xl overflow-hidden shadow-lg">
+                                <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?q=80&w=2070&auto=format&fit=crop" alt="Survival Karts customization" class="w-full h-64 object-cover">
+                            </div>
+                            <div class="rounded-xl overflow-hidden shadow-lg -mt-8">
+                                <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=2065&auto=format&fit=crop" alt="Survival Karts multiplayer" class="w-full h-64 object-cover">
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-24 h-24 rounded-full bg-appleRed flex items-center justify-center cursor-pointer animate-pulse">
+                                <i class="fas fa-play text-white text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6">Master the Apocalypse</h3>
+                    <p class="text-appleGray mb-6">
+                        Survival Karts offers a unique blend of high-speed racing and intense zombie combat. Each race is a battle for survival where you'll need to balance speed with strategic combat. 
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <span class="text-appleBlue font-bold">1</span>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg mb-2">Race Through Chaos</h4>
+                                <p class="text-appleGray">
+                                    Navigate through zombie-infested cities, abandoned highways, and overgrown countryside while maintaining top speed.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center">
+                                    <span class="text-appleRed font-bold">2</span>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg mb-2">Combat Mechanics</h4>
+                                <p class="text-appleGray">
+                                    Use mounted weapons to clear paths, defend against zombie attacks, and sabotage opponents. Collect power-ups and ammo during races.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                                    <span class="text-green-600 font-bold">3</span>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg mb-2">Strategic Racing</h4>
+                                <p class="text-appleGray">
+                                    Manage your resources wisely - sometimes avoiding combat is smarter than engaging. Use the environment to your advantage.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 bg-blue-50 border border-blue-100 rounded-xl p-6">
+                        <h4 class="font-bold text-lg flex items-center mb-2">
+                            <i class="fas fa-lightbulb text-yellow-500 mr-2"></i> Pro Tip
+                        </h4>
+                        <p class="text-appleGray">
+                            "Save your special weapons for the final lap when zombie density increases dramatically. A well-timed missile or flamethrower can clear your path to victory!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-  </div>
+    <!-- Play Section -->
+    <section id="play" class="py-20 bg-gradient-to-b from-appleLight to-gray-100">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Play Survival Karts Online</h2>
+                <p class="text-lg text-appleGray mb-8">
+                    Experience the adrenaline-pumping action right in your browser. No downloads required - just pure racing survival fun!
+                </p>
+                <div class="inline-flex items-center space-x-2 bg-blue-50 border border-blue-200 rounded-full py-2 px-4">
+                    <i class="fas fa-sync text-appleBlue"></i>
+                    <span class="text-sm font-medium">Game saves automatically to the cloud</span>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="game-frame-container">
+                    <iframe src="https://freezenova.com/survival-karts/" title="Survival Karts Game" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                        <div class="text-2xl text-appleBlue mb-2">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Controls</h3>
+                        <p class="text-sm text-appleGray">
+                            Arrow keys to drive, Space for weapons, Shift for boost
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                        <div class="text-2xl text-appleRed mb-2">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Controller Support</h3>
+                        <p class="text-sm text-appleGray">
+                            Full support for Xbox and PlayStation controllers
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                        <div class="text-2xl text-green-500 mb-2">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Save Progress</h3>
+                        <p class="text-sm text-appleGray">
+                            Login to save your progress across devices
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-100 text-center text-gray-600 text-sm py-4 mt-8">
-    &copy; <span id="year"></span> residentevilfour.store — All rights reserved.
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
+    <!-- Footer -->
+    <footer class="bg-appleDark text-gray-400 py-12">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-1">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <span class="bg-appleRed w-8 h-8 rounded-full flex items-center justify-center">
+                            <i class="fas fa-skull text-white text-sm"></i>
+                        </span>
+                        <span class="text-xl font-bold text-white">SurvivalKarts</span>
+                    </div>
+                    <p class="text-sm mb-6">
+                        The ultimate zombie survival racing experience. Play now for free in your browser.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-white transition">Home</a></li>
+                        <li><a href="#overview" class="hover:text-white transition">Overview</a></li>
+                        <li><a href="#features" class="hover:text-white transition">Features</a></li>
+                        <li><a href="#gameplay" class="hover:text-white transition">Gameplay</a></li>
+                        <li><a href="#play" class="hover:text-white transition">Play Now</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-white transition">Support</a></li>
+                        <li><a href="#" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition">Community</a></li>
+                        <li><a href="#" class="hover:text-white transition">Forums</a></li>
+                        <li><a href="#" class="hover:text-white transition">Patch Notes</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6">Legal</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Cookie Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Copyright</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-sm text-center">
+                <p>&copy; 2023 residentevilfour.store. All rights reserved. Survival Karts is a trademark of Apocalypse Games. This site is not affiliated with any game developers.</p>
+                <p class="mt-2">Website designed and developed with <i class="fas fa-heart text-red-500"></i> for gamers worldwide.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
